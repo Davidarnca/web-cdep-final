@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageLayout } from "@/components/PageLayout";
+import { PageLayout } from "../components/PageLayout";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import investigacionImg from "@/assets/investigacion.jpg";
-import politicasImg from "@/assets/politicas.jpg";
+import { Button } from "../components/ui/button";
+import investigacionImg from "../assets/investigacion.jpg";
+import politicasImg from "../assets/politicas.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

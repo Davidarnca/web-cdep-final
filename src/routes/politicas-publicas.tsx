@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageLayout, PageHeader } from "@/components/PageLayout";
+import { PageLayout, PageHeader } from "../components/PageLayout";
 import { Check } from "lucide-react";
-import img from "@/assets/politicas.jpg";
+import img from "../assets/politicas.jpg";
 
 export const Route = createFileRoute("/politicas-publicas")({
   head: () => ({

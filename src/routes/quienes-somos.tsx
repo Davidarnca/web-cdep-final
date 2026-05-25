@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageLayout, PageHeader } from "@/components/PageLayout";
-import alejandroImg from "@/assets/alejandro-rivera.jpg";
+// import { PageLayout, PageHeader } from "@/components/PageLayout";
+// import alejandroImg from "@/assets/alejandro-rivera.jpg";
+import { PageLayout, PageHeader } from "../components/PageLayout";
+import alejandroImg from "../assets/alejandro-rivera.jpg";
 
 export const Route = createFileRoute("/quienes-somos")({
   head: () => ({

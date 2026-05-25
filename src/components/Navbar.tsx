@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { LogoMark } from "./Logo";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 
 const links = [
   { to: "/", label: "Inicio" },

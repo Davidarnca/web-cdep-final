@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageLayout, PageHeader } from "@/components/PageLayout";
+// 1. Cambiamos esta ruta:
+import { PageLayout, PageHeader } from "../components/PageLayout"; 
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
+// 2. Y cambiamos esta también:
+import { Toaster } from "../components/ui/sonner";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
