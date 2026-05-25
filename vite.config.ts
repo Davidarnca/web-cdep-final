@@ -1,11 +1,10 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 
 export default defineConfig({
-  // Esto obliga a construir una SPA (Single Page Application)
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      input: "index.html"
-    }
-  }
+  plugins: [
+    react(),
+    TanStackRouterVite(), // Esto es vital para que entienda tus archivos en src/routes
+  ],
 });
