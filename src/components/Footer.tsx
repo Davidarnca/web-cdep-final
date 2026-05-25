@@ -1,47 +1,57 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone } from "lucide-react";
-import { LogoMark } from "./Logo";
+import { Instagram, Linkedin, Twitter } from "lucide-react"; // Importamos los iconos
+
+const socialLinks = [
+  { name: "Instagram", href: "https://www.instagram.com/economiapopularcdep/", icon: Instagram },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground mt-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 grid gap-10 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <LogoMark variant="white" className="h-10 w-10" />
-            <div className="font-display font-black text-xl">CDEP</div>
+    <footer className="bg-primary text-primary-foreground py-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid md:grid-cols-3 gap-12">
+        
+        {/* Navegación */}
+        <div className="space-y-4">
+          <h3 className="font-display font-bold uppercase tracking-widest text-sm">Menú</h3>
+          <nav className="flex flex-col gap-2">
+            <Link to="/" className="text-primary-foreground/70 hover:text-white transition-colors">Inicio</Link>
+            <Link to="/quienes-somos" className="text-primary-foreground/70 hover:text-white transition-colors">Quiénes Somos</Link>
+            <Link to="/investigacion" className="text-primary-foreground/70 hover:text-white transition-colors">Investigación</Link>
+            <Link to="/politicas-publicas" className="text-primary-foreground/70 hover:text-white transition-colors">Políticas Públicas</Link>
+          </nav>
+        </div>
+
+        {/* REDES SOCIALES — Nuevo bloque */}
+        <div className="space-y-4">
+          <h3 className="font-display font-bold uppercase tracking-widest text-sm">Síganos</h3>
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
+                aria-label={social.name}
+              >
+                <social.icon className="h-5 w-5" />
+              </a>
+            ))}
           </div>
-          <p className="text-sm text-primary-foreground/70 leading-relaxed">
-            Centro Colombiano para el Desarrollo de la Economía Popular.
+        </div>
+
+        {/* Contacto */}
+        <div className="space-y-4">
+          <h3 className="font-display font-bold uppercase tracking-widest text-sm">Contacto</h3>
+          <p className="text-primary-foreground/70 text-sm">
+            centrodesarrolloep@outlook.com<br />
+            Bogotá, Colombia
           </p>
         </div>
-        <div>
-          <h4 className="text-xs font-display font-bold mb-4 uppercase tracking-[0.18em]">Navegación</h4>
-          <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li><Link to="/quienes-somos" className="hover:text-white transition-colors">Quiénes Somos</Link></li>
-            <li><Link to="/investigacion" className="hover:text-white transition-colors">Investigación</Link></li>
-            <li><Link to="/politicas-publicas" className="hover:text-white transition-colors">Políticas Públicas</Link></li>
-            <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-xs font-display font-bold mb-4 uppercase tracking-[0.18em]">Contacto</h4>
-          <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0" />
-              <span>centrodesarrolloep@outlook.com</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0" />
-              <span>+57 324 680 1235</span>
-            </li>
-          </ul>
-        </div>
       </div>
-      <div className="border-t border-primary-foreground/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-5 text-xs text-primary-foreground/60">
-          © {new Date().getFullYear()} CDEP — Todos los derechos reservados.
-        </div>
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 mt-16 pt-8 border-t border-white/10 text-center text-xs text-primary-foreground/50">
+        © {new Date().getFullYear()} CDEP — Centro Colombiano para el Desarrollo de la Economía Popular.
       </div>
     </footer>
   );

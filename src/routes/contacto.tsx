@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-// 1. Cambiamos esta ruta:
-import { PageLayout, PageHeader } from "../components/PageLayout"; 
+import { PageLayout, PageHeader } from "../components/PageLayout";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-// 2. Y cambiamos esta también:
 import { Toaster } from "../components/ui/sonner";
 
 export const Route = createFileRoute("/contacto")({
@@ -45,11 +43,12 @@ function Contacto() {
   }
 
   return (
-    <PageLayout>
+    <PageLayout overlayHeader>
       <Toaster richColors />
       <PageHeader
+        tone="brand"
         eyebrow="Contacto"
-        title="Hablemos sobre su próximo proyecto."
+        title="Hablemos sobre su próximo proyecto"
         description="Estamos disponibles para asesorías, alianzas institucionales y propuestas de investigación."
       />
 

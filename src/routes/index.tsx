@@ -22,10 +22,10 @@ function Home() {
     <PageLayout>
       {/* HERO — centered, generous whitespace, per sketch */}
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 md:py-36 text-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-44 pb-20 md:pt-52 md:pb-32 text-center">
           <h1 className="font-display font-black text-3xl md:text-5xl lg:text-6xl uppercase tracking-tight leading-[1.1] max-w-4xl mx-auto">
             Impulsando el desarrollo de la Economía Popular en Colombia
-            <span className="text-brand-orange">.</span>
+            <span className="text-brand-orange text-[0.6em]"> .</span>
           </h1>
           <p className="mt-8 text-base md:text-lg font-normal text-primary-foreground/80 max-w-xl mx-auto">
             Innovación y políticas para el progreso.
@@ -46,7 +46,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
         <div className="text-center mb-20">
           <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-tight">
-            Nuestro Servicio<span className="text-brand-orange">.</span>
+            Nuestro Servicio<span className="text-brand-orange text-[0.6em]">.</span>
           </h2>
           <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
           <p className="mt-8 max-w-2xl mx-auto text-muted-foreground text-base leading-relaxed">
@@ -96,7 +96,7 @@ function Home() {
             Nuestro enfoque
           </div>
           <h2 className="font-display font-black text-2xl md:text-4xl text-primary uppercase tracking-tight">
-            ¿Qué es la economía popular<span className="text-brand-orange">?</span>
+            <span className="text-brand-orange">¿</span>Qué es la economía popular<span className="text-brand-orange">?</span>
           </h2>
           <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
           <p className="mt-8 text-muted-foreground leading-relaxed text-base md:text-lg max-w-3xl mx-auto">
@@ -111,7 +111,7 @@ function Home() {
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 text-center">
         <h3 className="font-display font-black text-2xl md:text-4xl text-primary uppercase tracking-tight max-w-3xl mx-auto">
-          Construyamos juntos políticas con evidencia<span className="text-brand-orange">.</span>
+          Construyamos juntos políticas con evidencia<span className="text-brand-orange text-[0.6em]"> .</span>
         </h3>
         <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
         <div className="mt-10">
@@ -155,7 +155,7 @@ function ServiceRow({
           <div className={`h-[3px] w-10 ${accent}`} />
         </div>
         <h3 className="font-display font-black text-3xl md:text-4xl text-primary uppercase tracking-tight mb-5">
-          {title}<span className="text-brand-orange">.</span>
+          {title}<span className="text-brand-orange text-[0.6em]"> .</span>
         </h3>
         <p className="text-muted-foreground leading-relaxed text-base mb-6">
           {description}

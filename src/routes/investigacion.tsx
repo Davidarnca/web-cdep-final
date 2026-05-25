@@ -25,10 +25,11 @@ const services = [
 
 function Investigacion() {
   return (
-    <PageLayout>
+    <PageLayout overlayHeader>
       <PageHeader
+        tone="orange"
         eyebrow="Servicios"
-        title="Investigación aplicada para entender la economía popular."
+        title="Investigación aplicada para entender la economía popular"
         description="Producimos evidencia rigurosa que permite a gobiernos y organizaciones tomar mejores decisiones sobre el tejido económico de los territorios."
       />
 

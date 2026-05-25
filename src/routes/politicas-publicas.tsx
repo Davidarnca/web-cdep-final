@@ -26,10 +26,11 @@ const services = [
 
 function Politicas() {
   return (
-    <PageLayout>
+    <PageLayout overlayHeader>
       <PageHeader
+        tone="pink"
         eyebrow="Servicios"
-        title="Formulación de políticas públicas, programas y proyectos."
+        title="Formulación de políticas públicas, programas y proyectos"
         description="Acompañamos a administraciones municipales en el diseño e implementación de instrumentos de política pública con enfoque territorial."
       />
 
