@@ -1,3 +1,4 @@
+import "./styles.css"; // O la ruta donde esté tu archivo de estilos de Tailwind
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";

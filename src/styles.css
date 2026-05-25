@@ -1,6 +1,13 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
+/* Cambia tus líneas 1-3 por estas */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+     /* ... mantén todo tu código :root { ... } aquí abajo ... */
+  }
+}
 
 @custom-variant dark (&:is(.dark *));
 
