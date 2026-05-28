@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageLayout, PageHeader } from "../components/PageLayout";
+import { PageLayout } from "../components/PageLayout";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
@@ -43,63 +43,84 @@ function Contacto() {
   }
 
   return (
-    <PageLayout overlayHeader>
+    <PageLayout overlayHeader={true}>
       <Toaster richColors />
-      <PageHeader
-        tone="brand"
-        eyebrow="Contacto"
-        title="Hablemos sobre su próximo proyecto"
-        description="Estamos disponibles para asesorías, alianzas institucionales y propuestas de investigación."
-      />
+      
+      {/* Franja azul estática con la altura EXACTA del Navbar (80px = h-20) */}
+      <div className="bg-primary w-full h-20" />
 
-      <section className="mx-auto max-w-6xl px-6 py-20 grid lg:grid-cols-5 gap-12">
-        <aside className="lg:col-span-2 space-y-6">
-          <div>
-            <h2 className="text-2xl font-semibold mb-2">Información de contacto</h2>
-            <p className="text-muted-foreground text-sm">Escríbanos o llámenos directamente.</p>
-          </div>
-          {[
-            { icon: Mail, label: "Correo", value: "centrodesarrolloep@outlook.com" },
-            { icon: Phone, label: "Teléfono", value: "+57 324 680 1235" },
-            { icon: MapPin, label: "Ubicación", value: "Bogotá, Colombia" },
-          ].map((c) => (
-            <div key={c.label} className="flex gap-4 p-5 bg-card border border-border rounded-lg">
-              <div className="h-10 w-10 rounded-md bg-brand/10 text-brand grid place-items-center flex-shrink-0">
-                <c.icon className="h-5 w-5" />
-              </div>
+      {/* Sección principal 100% blanca que inicia justo donde termina el menú */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
+            
+            <aside className="lg:col-span-2 space-y-8">
               <div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">{c.label}</div>
-                <div className="text-foreground text-sm break-all">{c.value}</div>
+                <div className="text-[11px] uppercase tracking-[0.25em] mb-4 font-display font-bold text-brand-orange">
+                  Contacto
+                </div>
+                {/* Título en azul institucional */}
+                <h1 className="font-display font-black text-3xl md:text-4xl uppercase tracking-tight leading-[1.1] text-primary">
+                  Hablemos sobre <br className="hidden md:block"/>su proyecto
+                  <span className="text-brand-orange text-[0.6em]">.</span>
+                </h1>
+                <div className="mt-6 h-[3px] w-16 bg-brand-orange" />
+                <p className="mt-6 text-base text-muted-foreground leading-relaxed max-w-sm">
+                  Estamos listos para transformar datos en política pública. ¿Tiene una visión? Nosotros tenemos la evidencia.
+                </p>
               </div>
-            </div>
-          ))}
-        </aside>
 
-        <form onSubmit={onSubmit} className="lg:col-span-3 bg-card border border-border rounded-xl p-8 md:p-10 space-y-5">
-          <div className="grid sm:grid-cols-2 gap-5">
-            <Field name="nombre" label="Nombre completo" required />
-            <Field name="email" label="Correo electrónico" type="email" required />
+              <div className="space-y-6 pt-4">
+                {[
+                  { icon: Mail, label: "Correo", value: "centrodesarrolloep@outlook.com" },
+                  { icon: Phone, label: "Llamadas", value: "+57 324 680 1235" },
+                  { icon: MapPin, label: "Sede", value: "Bogotá, Colombia" },
+                ].map((c) => (
+                  <div key={c.label} className="flex gap-5 items-center">
+                    {/* Iconos en naranja */}
+                    <div className="h-10 w-10 rounded-full bg-brand-orange/10 grid place-items-center flex-shrink-0">
+                      <c.icon className="h-4 w-4 text-brand-orange" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold block mb-0.5">{c.label}</span>
+                      <span className="text-primary font-semibold text-sm">{c.value}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </aside>
+
+            {/* Formulario con fondo gris suave (slate-50) para contrastar contra el blanco */}
+            <form
+              onSubmit={onSubmit}
+              className="lg:col-span-3 bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 space-y-5 shadow-xl"
+            >
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field name="nombre" label="Nombre completo" required />
+                <Field name="email" label="Correo electrónico" type="email" required />
+              </div>
+              <Field name="organizacion" label="Organización (opcional)" />
+              <Field name="asunto" label="Asunto" required />
+              <div>
+                <label className="block text-xs font-bold text-primary/80 mb-2">Mensaje *</label>
+                <textarea
+                  name="mensaje"
+                  rows={4}
+                  maxLength={1000}
+                  required
+                  className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-primary placeholder-muted-foreground outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition shadow-sm"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-3.5 text-xs font-display font-bold uppercase tracking-[0.2em] shadow-md shadow-brand-orange/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-60"
+              >
+                {submitting ? "Enviando..." : "Enviar mensaje"}
+              </button>
+            </form>
           </div>
-          <Field name="organizacion" label="Organización (opcional)" />
-          <Field name="asunto" label="Asunto" required />
-          <div>
-            <label className="block text-sm font-medium text-foreground mb-1.5">Mensaje *</label>
-            <textarea
-              name="mensaje"
-              rows={5}
-              maxLength={1000}
-              required
-              className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-90 disabled:opacity-60 transition"
-          >
-            {submitting ? "Enviando..." : "Enviar mensaje"}
-          </button>
-        </form>
+        </div>
       </section>
     </PageLayout>
   );
@@ -108,7 +129,7 @@ function Contacto() {
 function Field({ name, label, type = "text", required }: { name: string; label: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-foreground mb-1.5">
+      <label className="block text-xs font-bold text-primary/80 mb-2">
         {label}{required && " *"}
       </label>
       <input
@@ -116,7 +137,7 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
         type={type}
         required={required}
         maxLength={255}
-        className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition"
+        className="w-full rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm text-primary placeholder-muted-foreground outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition shadow-sm"
       />
     </div>
   );

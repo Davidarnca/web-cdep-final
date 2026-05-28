@@ -19,13 +19,13 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <PageLayout>
-      {/* HERO — centered, generous whitespace, per sketch */}
+    <PageLayout overlayHeader>
+      {/* HERO */}
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-44 pb-20 md:pt-52 md:pb-32 text-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-44 md:pt-52 pb-28 md:pb-36 text-center">
           <h1 className="font-display font-black text-3xl md:text-5xl lg:text-6xl uppercase tracking-tight leading-[1.1] max-w-4xl mx-auto">
             Impulsando el desarrollo de la Economía Popular en Colombia
-            <span className="text-brand-orange text-[0.6em]"> .</span>
+            <span className="text-brand-orange text-[0.6em]">.</span>
           </h1>
           <p className="mt-8 text-base md:text-lg font-normal text-primary-foreground/80 max-w-xl mx-auto">
             Innovación y políticas para el progreso.
@@ -42,7 +42,7 @@ function Home() {
         </div>
       </section>
 
-      {/* SERVICIOS — heading like the sketch */}
+      {/* SERVICIOS */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
         <div className="text-center mb-20">
           <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-tight">
@@ -55,7 +55,6 @@ function Home() {
           </p>
         </div>
 
-        {/* Alternating image/text blocks instead of 3-card grid */}
         <div className="space-y-24 md:space-y-32">
           <ServiceRow
             index="01"
@@ -89,14 +88,14 @@ function Home() {
         </div>
       </section>
 
-      {/* ¿Qué es economía popular? — minimal text band */}
+      {/* ¿QUÉ ES ECONOMÍA POPULAR? */}
       <section className="bg-secondary/60 border-y border-border">
         <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 text-center">
           <div className="text-[11px] uppercase tracking-[0.22em] text-brand-orange font-display font-medium mb-5">
             Nuestro enfoque
           </div>
           <h2 className="font-display font-black text-2xl md:text-4xl text-primary uppercase tracking-tight">
-            <span className="text-brand-orange">¿</span>Qué es la economía popular<span className="text-brand-orange">?</span>
+            <span className="text-brand-orange text-[0.6em]">¿</span>Qué es la economía popular<span className="text-brand-orange text-[0.6em]">?</span>
           </h2>
           <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
           <p className="mt-8 text-muted-foreground leading-relaxed text-base md:text-lg max-w-3xl mx-auto">
@@ -108,17 +107,53 @@ function Home() {
         </div>
       </section>
 
+      {/* ACTUALIDAD Y CASOS DE ÉXITO */}
+      <section className="bg-background border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-28">
+          <div className="text-center mb-16">
+            <div className="text-[11px] uppercase tracking-[0.22em] text-brand-orange font-display font-medium mb-5">
+              Novedades
+            </div>
+            <h2 className="font-display font-black text-3xl md:text-5xl text-primary uppercase tracking-tight">
+              Actualidad y Casos de Éxito<span className="text-brand-orange text-[0.6em]">.</span>
+            </h2>
+            <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { accent: "bg-brand", date: "15 May, 2026", tag: "Investigación", title: "Diagnóstico territorial en municipios PDET", excerpt: "Presentamos los resultados de un estudio aplicado en 12 municipios sobre dinámicas de la economía popular rural." },
+              { accent: "bg-brand-green", date: "02 Abr, 2026", tag: "Política Pública", title: "Acompañamiento a planes de desarrollo municipal", excerpt: "Asesoramos a tres alcaldías en la inclusión de la economía popular dentro de sus planes 2024-2027." },
+              { accent: "bg-brand-pink", date: "18 Mar, 2026", tag: "Alianza", title: "Convenio con red de plazas de mercado", excerpt: "Iniciamos un proyecto de fortalecimiento organizativo y comercial con plazas de mercado de Bogotá." },
+            ].map((n) => (
+              <article key={n.title} className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <div className={`h-1.5 w-full ${n.accent}`} />
+                <div className="p-7 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] font-display font-semibold text-muted-foreground mb-4">
+                    <span className="text-brand-orange">{n.tag}</span>
+                    <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
+                    <span>{n.date}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-primary leading-snug mb-3">{n.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{n.excerpt}</p>
+                  <Link to="/contacto" className="inline-flex items-center gap-2 text-xs font-display font-semibold uppercase tracking-[0.18em] text-brand hover:text-brand-orange transition-colors">
+                    Leer más <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 text-center">
         <h3 className="font-display font-black text-2xl md:text-4xl text-primary uppercase tracking-tight max-w-3xl mx-auto">
-          Construyamos juntos políticas con evidencia<span className="text-brand-orange text-[0.6em]"> .</span>
+          Construyamos juntos políticas con evidencia<span className="text-brand-orange text-[0.6em]">.</span>
         </h3>
         <div className="mx-auto mt-6 h-[3px] w-12 bg-brand-orange" />
         <div className="mt-10">
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none font-display uppercase tracking-[0.16em] text-xs px-7 h-12">
-            <Link to="/contacto">
-              Hablemos <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            <Link to="/contacto">Hablemos <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>
@@ -126,28 +161,12 @@ function Home() {
   );
 }
 
-function ServiceRow({
-  index, accent, title, description, bullets, href, img, reverse,
-}: {
-  index: string;
-  accent: string;
-  title: string;
-  description: string;
-  bullets: string[];
-  href: "/investigacion" | "/politicas-publicas";
-  img: string;
-  reverse?: boolean;
-}) {
+function ServiceRow({ index, accent, title, description, bullets, href, img, reverse }: any) {
   return (
     <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
       <div className="relative">
         <div className={`absolute -top-4 -left-4 w-24 h-24 ${accent} -z-0 hidden md:block`} />
-        <img
-          src={img}
-          alt={title}
-          className="relative w-full aspect-[4/3] object-cover shadow-xl"
-          loading="lazy"
-        />
+        <img src={img} alt={title} className="relative w-full aspect-[4/3] object-cover shadow-xl" loading="lazy" />
       </div>
       <div>
         <div className="flex items-baseline gap-4 mb-5">
@@ -155,13 +174,11 @@ function ServiceRow({
           <div className={`h-[3px] w-10 ${accent}`} />
         </div>
         <h3 className="font-display font-black text-3xl md:text-4xl text-primary uppercase tracking-tight mb-5">
-          {title}<span className="text-brand-orange text-[0.6em]"> .</span>
+          {title}<span className="text-brand-orange text-[0.6em]">.</span>
         </h3>
-        <p className="text-muted-foreground leading-relaxed text-base mb-6">
-          {description}
-        </p>
+        <p className="text-muted-foreground leading-relaxed text-base mb-6">{description}</p>
         <ul className="space-y-2.5 mb-8">
-          {bullets.map((b) => (
+          {bullets.map((b: string) => (
             <li key={b} className="flex items-start gap-3 text-sm text-foreground/85">
               <span className={`mt-1.5 h-1.5 w-1.5 ${accent} rounded-full shrink-0`} />
               <span>{b}</span>
@@ -169,9 +186,7 @@ function ServiceRow({
           ))}
         </ul>
         <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none font-display uppercase tracking-[0.16em] text-xs h-11 px-6">
-          <Link to={href}>
-            Ver detalle <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+          <Link to={href}>Ver detalle <ArrowRight className="ml-2 h-4 w-4" /></Link>
         </Button>
       </div>
     </div>

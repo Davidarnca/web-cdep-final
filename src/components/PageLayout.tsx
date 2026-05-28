@@ -1,9 +1,10 @@
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { MessageCircle } from "lucide-react";
 
 export function PageLayout({
   children,
-  overlayHeader = true, // Lo dejamos en true por defecto para eliminar el hueco blanco en todas las páginas
+  overlayHeader = true, 
 }: {
   children: React.ReactNode;
   overlayHeader?: boolean;
@@ -11,8 +12,21 @@ export function PageLayout({
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className={`flex-1 ${overlayHeader ? "" : "pt-20"}`}>{children}</main>
+      <main className={`flex-1 ${overlayHeader ? "" : "pt-20"}`}>
+        {children}
+      </main>
       <Footer />
+      
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href="https://wa.me/573246801235"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle className="h-6 w-6" />
+      </a>
     </div>
   );
 }
@@ -26,7 +40,6 @@ const toneBg: Record<Tone, string> = {
   pink: "bg-brand-pink",
 };
 
-// Color de acento para la línea/punto - siempre contrastando con el color de la marca
 const toneAccent: Record<Tone, string> = {
   brand: "bg-brand-orange",
   green: "bg-brand",
@@ -61,7 +74,7 @@ export function PageHeader({
           </div>
         )}
         <h1 className="font-display font-black text-3xl md:text-5xl max-w-4xl mx-auto uppercase tracking-tight leading-[1.15]">
-          {title}<span className={toneAccentText[tone] + " text-[0.6em]"}> .</span>
+          {title}<span className={`${toneAccentText[tone]} text-[0.6em]`}>.</span>
         </h1>
         {description && (
           <p className="mt-6 text-base md:text-lg font-normal text-white/85 max-w-2xl mx-auto leading-relaxed">
